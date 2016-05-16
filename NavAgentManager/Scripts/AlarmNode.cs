@@ -1,26 +1,24 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿/*
+ *  Only used so that Alarm Nodes can be easily found in code instead of looking for specific names of objects.
+ *
+ *  Author: Wayne Work
+ *  Initial Date: May 16, 2016
+ *  Last Edit Date: May 16, 2016
+ */
 
-public class AlarmNode : MonoBehaviour {
+using UnityEngine;
 
+public class AlarmNode : MonoBehaviour
+{
     private GuardData guardData;
 
-	// Use this for initialization
-	void Start () {
-	    
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    /*void OnTriggerEnter(Collider col)
+    // Use this for initialization
+    private void Start()
     {
-        if (col.GetComponent<GuardData>() != null)
-        {
-            guardData = col.GetComponent<GuardData>();
-            guardData.SetAngryStatus(false);
-        }
-    }*/
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+    }
 }
