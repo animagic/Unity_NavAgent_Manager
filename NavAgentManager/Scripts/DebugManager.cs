@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ *  Debug Manager to test unit behaviour in different states and settings
+ *
+ *  Author: Wayne Work
+ *  Initial Date: May 16, 2016
+ *  Last Edit Date: May 16, 2016
+ */
+
+using System;
 using UnityEngine;
 
 public class DebugManager : MonoBehaviour
@@ -13,6 +21,8 @@ public class DebugManager : MonoBehaviour
     private void Start()
     {
         FindAllGuards();
+
+        //sets the actively selected guard to the 0 index of the guard array and sets its color to blue
         activeGuard = 0;
         guards[activeGuard].GetComponent<Renderer>().material.color = Color.blue;
     }
@@ -31,6 +41,7 @@ public class DebugManager : MonoBehaviour
         guards = GameObject.FindObjectsOfType<GuardData>();
     }
 
+    // Cycles the actively selected guard
     private void CycleGuards()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -63,6 +74,8 @@ public class DebugManager : MonoBehaviour
         }
     }
 
+    // Stops the guard where it is
+    // Will not interrupt the Angry transformtion, to or from, but will stop the guard from moving once the transformation is complete
     private void PauseGuard()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -78,6 +91,7 @@ public class DebugManager : MonoBehaviour
         }
     }
 
+    // Reverses the guard's nav point array so it follows the route backwards
     private void ReverseGuardNav()
     {
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -87,6 +101,7 @@ public class DebugManager : MonoBehaviour
         }
     }
 
+    // Forces the guard into the Angry state
     private void MakeGuardAngry()
     {
         if (Input.GetKeyDown(KeyCode.Alpha3))
